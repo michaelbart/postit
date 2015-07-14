@@ -14,8 +14,13 @@
 
 <p>
   <%= @post.description %>
+  <br/>
+  <br/>
+  <span class="quiet">posted by</span> <%= link_to @post.creator.username, user_path(@post.creator) %>
+
   <hr/>
 </p>
+
 <% if logged_in? %>
   <%= form_for [@post, @comment] do |f| %>
     <%= render 'shared/errors', obj: @comment %>
